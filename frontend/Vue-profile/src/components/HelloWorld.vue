@@ -2,13 +2,10 @@
 import axios from 'axios';
 
 const user = 'admin';
-const pass = 'password123';
+const pass = 'gomory1';
 const URL = 'http://127.0.0.1:8000';
 
 export default {
-  props: {
-    title: String
-  },
   methods: {
     getData(event) {
       axios.get(URL+'/profiles/', {
@@ -50,25 +47,22 @@ export default {
 </script>
 
 <template>
-  <div class="">
-    <h1 class="p-4 mb-4 text-4xl capitalize text-black 
-    text-center border rounded-xl border-green-700
-    bg-gradient-to-t from-green-400 to-green-800"
-    >
-    {{ title }}</h1>
+  <div>
     <div class="divider">Basic Functions</div>
-    <div class="flex justify-center mb-4">
+    <div class="flex justify-center">
       <button
        @click="getData"
-        class="btn bg-green-500 m-2 w-48 text-lg hover:text-white text-black"
+        class="btn bg-green-500 w-48 mx-4 flex flex-row text-lg hover:text-white text-black"
         >
+        <i class="fa-solid fa-table-list basis-1/4"></i>
         Get data
       </button>
       <button
        @click="deleteFirst"
-        class="btn bg-red-500 m-2 w-48 text-lg hover:text-white text-black"
+        class="btn bg-red-500 w-48 mx-4 text-lg hover:text-white text-black"
         >
-        Delete First Item
+        <i class="fa-solid fa-trash basis-1/4"></i>
+        Delete First
       </button>
     </div>
     <div class="divider">List of profiles</div>
