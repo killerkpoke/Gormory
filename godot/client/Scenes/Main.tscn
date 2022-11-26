@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/FenixSans.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/HttpCreate.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 3
+outline_color = Color( 0.270588, 0.580392, 0.211765, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 1 )
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 430.891
+margin_top = 23.3122
+margin_right = 604.891
+margin_bottom = 69.3122
+custom_fonts/font = ExtResource( 2 )
+text = "GodoRmory"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel2" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 227.995
+margin_top = 79.3755
+margin_right = 275.995
+margin_bottom = 121.375
+text = "Name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEdit" type="LineEdit" parent="CanvasLayer/Panel"]
+margin_left = 225.058
+margin_top = 119.994
+margin_right = 621.058
+margin_bottom = 198.994
+custom_fonts/font = ExtResource( 2 )
+text = "Test_player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionLabel" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 224.995
+margin_top = 210.375
+margin_right = 304.995
+margin_bottom = 253.375
+text = "Description"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionEdit" type="TextEdit" parent="CanvasLayer/Panel"]
+margin_left = 228.47
+margin_top = 253.409
+margin_right = 785.47
+margin_bottom = 417.409
+custom_fonts/font = ExtResource( 2 )
+custom_colors/background_color = Color( 0.866667, 0.137255, 0.137255, 1 )
+text = "test description from godot."
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateButton" type="Button" parent="CanvasLayer/Panel"]
+margin_left = 377.995
+margin_top = 452.697
+margin_right = 637.995
+margin_bottom = 558.697
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "New"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AcceptDialog" type="AcceptDialog" parent="CanvasLayer"]
+margin_left = 363.968
+margin_top = 176.914
+margin_right = 640.968
+margin_bottom = 362.914
+window_title = "Success"
+dialog_text = "Successfully added a new profile!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="request_completed" from="CanvasLayer/HTTPRequest" to="CanvasLayer" method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="CanvasLayer/Panel/CreateButton" to="CanvasLayer" method="_on_CreateButton_pressed"]
