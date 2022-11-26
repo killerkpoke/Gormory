@@ -1,7 +1,5 @@
-# Gormory
-- Django as backend
-- Vue 3 as frontend
-- Godot as frontend alternative
+# Frontend side of the project
+
 
 ## Project Setup
 
